@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PowerLab Gym - Transforma tu cuerpo</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23059669'><path d='M13 2l3.293 3.293a1 1 0 010 1.414L13.414 8h2.172a1 1 0 110 2H12a1 1 0 01-1-1V3.414L8.707 5.707a1 1 0 11-1.414-1.414L11 2h2zm0 11l3.293-3.293a1 1 0 010-1.414L13.414 7h2.172a1 1 0 110 2H12a1 1 0 011-1v5.586L8.707 12.293a1 1 0 011.414 1.414L11 13h2z'/></svg>"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <!-- Left: Logo Icon (only mobile) -->
+        <div class="navbar-logo-icon">
+          <i class="bi bi-lightning-charge-fill logo-icon"></i>
+        </div>
+
+        <!-- Desktop: Full Logo -->
+        <div class="navbar-logo">
+          <i class="bi bi-lightning-charge-fill logo-icon"></i>
+          <span class="logo-text">PowerLab Gym</span>
+        </div>
+
+        <!-- Mobile Center: Logo Text -->
+        <div class="navbar-mobile-center">
+          <span>PowerLab</span>
+        </div>
+
+        <!-- Desktop Menu -->
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="#home" class="nav-link">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a href="#services" class="nav-link">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a href="#coaches" class="nav-link">Entrenadores</a>
+          </li>
+          <li class="nav-item">
+            <a href="#pricing" class="nav-link">Planes</a>
+          </li>
+          <li class="nav-item">
+            <a href="#testimonials" class="nav-link">Testimonios</a>
+          </li>
+          <li class="nav-item">
+            <a href="#faq" class="nav-link">FAQ</a>
+          </li>
+        </ul>
+
+        <!-- Desktop Buttons -->
+        <div class="navbar-buttons">
+          <button
+            class="theme-toggle-btn"
+            id="themeToggleBtn"
+            title="Cambiar tema"
+          >
+            <i class="bi bi-moon-fill"></i>
+          </button>
+          <a href="#contact" class="btn-navbar btn-navbar-secondary"
+            >Contacto</a
+          >
+          <button class="register-btn">Registrarse</button>
+        </div>
+
+        <!-- Mobile Hamburger Menu Button -->
+        <button class="hamburger-btn" id="hamburgerBtn">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Sidebar Menu Backdrop -->
+    <div class="menu-backdrop" id="menuBackdrop"></div>
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <button class="close-btn" id="closeBtn">
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+      <ul class="mobile-nav-menu">
+        <li class="mobile-nav-item">
+          <a href="#home" class="mobile-nav-link">Inicio</a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="#services" class="mobile-nav-link">Servicios</a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="#coaches" class="mobile-nav-link">Entrenadores</a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="#pricing" class="mobile-nav-link">Planes</a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="#testimonials" class="mobile-nav-link">Testimonios</a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="#faq" class="mobile-nav-link">FAQ</a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="#contact" class="mobile-nav-link">Contacto</a>
+        </li>
+        <li class="mobile-nav-item">
+          <button class="mobile-register-btn">Registrarse</button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-container">
+        <!-- Badges de confianza -->
+        <div class="trust-badge">
+          <div class="avatar-circle">
+            <div class="avatar">
+              <i class="bi bi-person-fill"></i>
+            </div>
+            <div class="avatar">
+              <i class="bi bi-person-fill"></i>
+            </div>
+            <div class="avatar">
+              <i class="bi bi-person-arms-up"></i>
+            </div>
+          </div>
+          <p>Asociados con 100+ profesionales certificados</p>
+        </div>
+
+        <!-- Contenido principal -->
+        <h1 class="hero-title">
+          Transforma tu cuerpo.<br />
+          Eleva tu estilo de vida.
+        </h1>
+
+        <p class="hero-subtitle">
+          Una experiencia fitness premium construida para personas que desean
+          resultados, confianza y salud a largo plazo, entregados
+          consistentemente.
+        </p>
+
+        <!-- Botones de acción -->
+        <div class="hero-buttons">
+          <button class="btn btn-primary">Únete Ahora</button>
+          <button class="btn btn-secondary">Ver Programas</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Extra Hero Section -->
+    <section class="extra-hero" id="features">
+      <div class="extra-hero-wrapper">
+        <!-- Card 1: Elite Coaches -->
+        <div class="extra-hero-card card-1">
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <div class="card-avatars">
+              <div class="small-avatar">
+                <i class="bi bi-person-fill"></i>
+              </div>
+              <div class="small-avatar">
+                <i class="bi bi-person-fill"></i>
+              </div>
+              <div class="small-avatar">
+                <i class="bi bi-person-fill"></i>
+              </div>
+            </div>
+            <h3 class="card-title">Entrenadores de élite</h3>
+          </div>
+        </div>
+
+        <!-- Card 2: Customer Review -->
+        <div class="extra-hero-card card-2">
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <div class="card-rating">
+              <i class="bi bi-star-fill"></i>
+              <span>4.9</span>
+            </div>
+            <h3 class="card-title">Reseñas de clientes</h3>
+          </div>
+        </div>
+
+        <!-- Card 3: Members Stats -->
+        <div class="extra-hero-card card-3">
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <div class="card-stats">
+              <h3 class="stats-number">20k+</h3>
+            </div>
+            <p class="stats-text">
+              Miembros entrenados a través de nuestros programas, desarrollando
+              fuerza, resistencia y confianza a largo plazo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Qué Obtendrás -->
+    <section class="what-you-get" id="services">
+      <div class="what-you-get-container">
+        <div class="section-header">
+          <span class="section-label">LO QUE OBTENDRÁS</span>
+          <h2 class="section-title">Cómo te ayudamos a transformarte</h2>
+          <p class="section-subtitle">
+            Nuestros miembros provienen de todos los niveles de condición
+            física: principiantes, atletas y profesionales ocupados. Se
+            comprometen, los guiamos y los resultados llegan.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service 1: Initial Assessment -->
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="bi bi-clipboard-check"></i>
+            </div>
+            <h3 class="service-title">Evaluación inicial</h3>
+            <p class="service-description">
+              Comenzamos por comprender su cuerpo, sus objetivos y sus
+              limitaciones para construir una base sólida.
+            </p>
+            <a href="#" class="learn-more">
+              Más información
+              <i style="margin-top: 4px" class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- Service 2: Personalized Plan -->
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="bi bi-bullseye"></i>
+            </div>
+            <h3 class="service-title">Plan personalizado</h3>
+            <p class="service-description">
+              Tu hoja de ruta de entrenamiento y nutrición se adapta a tu estilo
+              de vida, necesidades y objetivos a largo plazo.
+            </p>
+            <a href="#" class="learn-more">
+              Más información
+              <i style="margin-top: 4px" class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- Service 3: Guided Training -->
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="bi bi-lightning-fill"></i>
+            </div>
+            <h3 class="service-title">Entrenamiento guiado</h3>
+            <p class="service-description">
+              Cada sesión está dirigida por un entrenador para garantizar una
+              técnica adecuada, un progreso constante y cero incertidumbres.
+            </p>
+            <a href="#" class="learn-more">
+              Más información
+              <i style="margin-top: 4px" class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- Service 4: Progress Tracking -->
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="bi bi-graph-up"></i>
+            </div>
+            <h3 class="service-title">Seguimiento del progreso</h3>
+            <p class="service-description">
+              Monitoreamos tus resultados semanalmente para que mantengas la
+              responsabilidad, motivación y mejora constante.
+            </p>
+            <a href="#" class="learn-more">
+              Más información
+              <i style="margin-top: 4px" class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who We Are Section -->
+    <section class="who-we-are" id="about">
+      <div class="who-we-are-container">
+        <div class="who-we-are-content">
+          <span class="section-label-alt">QUIÉNES SOMOS</span>
+          <h2 class="who-we-are-title">
+            Más que creativos,<br />Verdaderos visionarios
+          </h2>
+
+          <div class="who-we-are-text">
+            <h3 class="connect-title">Conecta más<br />con nosotros.</h3>
+            <p class="who-we-are-description">
+              Ayudamos a profesionales ocupados, principiantes y atletas a
+              construir hábitos de fitness sostenibles. Nuestros entrenadores
+              adaptan cada entrenamiento a tus objetivos, asegurando que
+              entrenes mejor, evites lesiones y mantengas la motivación.
+            </p>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-number">100+</div>
+              <div class="stat-label">Entrenadores expertos</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <div class="stat-number">5000+</div>
+              <div class="stat-label">Clientes felices</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <div class="stat-number">99.9%</div>
+              <div class="stat-label">Clientes satisfechos</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="who-we-are-image">
+          <div class="image-placeholder">
+            <img src="Assets/coach 2.webp" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Coaches Section -->
+    <section class="coaches" id="coaches">
+      <div class="coaches-container">
+        <div class="coaches-header">
+          <span class="section-label-alt">ENTRENADORES</span>
+          <h2 class="coaches-title">Experimentado. Orientado a resultados.</h2>
+          <p class="coaches-subtitle">
+            Cada entrenador aporta una combinación única de ciencia del fitness,
+            experiencia atlética real y métodos de transformación comprobados.
+          </p>
+        </div>
+
+        <div class="coaches-grid">
+          <!-- Coach 1 -->
+          <div class="coach-card">
+            <div class="coach-image">
+              <img src="Assets/coach 3.webp" alt="Juan Pérez" />
+            </div>
+            <div class="coach-info">
+              <h3 class="coach-name">Juan Pérez</h3>
+              <p class="coach-specialty">Entrenador de Fuerza</p>
+              <p class="coach-description">
+                Especialista en musculación y aumento de masa muscular. 10+ años
+                de experiencia transformando cuerpos.
+              </p>
+              <div class="coach-socials">
+                <a href="#" class="social-icon">
+                  <i class="bi bi-facebook"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="bi bi-instagram"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="bi bi-twitter"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coach 2 -->
+          <div class="coach-card">
+            <div class="coach-image">
+              <img src="Assets/coach 4.webp" alt="Carlos Fernández" />
+            </div>
+            <div class="coach-info">
+              <h3 class="coach-name">Carlos Fernández</h3>
+              <p class="coach-specialty">Entrenador de Resistencia</p>
+              <p class="coach-description">
+                Experto en acondicionamiento físico y programas de resistencia.
+                Especializado en atletas competitivos.
+              </p>
+              <div class="coach-socials">
+                <a href="#" class="social-icon">
+                  <i class="bi bi-facebook"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="bi bi-instagram"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="bi bi-twitter"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coach 3 -->
+          <div class="coach-card">
+            <div class="coach-image">
+              <img src="Assets/coach 5.webp" alt="Camila Suárez" />
+            </div>
+            <div class="coach-info">
+              <h3 class="coach-name">Camila Suárez</h3>
+              <p class="coach-specialty">Entrenadora Funcional</p>
+              <p class="coach-description">
+                Especialista en entrenamiento funcional y wellness. Apasionada
+                por transformar estilos de vida.
+              </p>
+              <div class="coach-socials">
+                <a href="#" class="social-icon">
+                  <i class="bi bi-facebook"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="bi bi-instagram"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="bi bi-twitter"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Membership Plans Section -->
+    <section class="membership-plans" id="pricing">
+      <div class="membership-plans-container">
+        <div class="plans-header">
+          <span class="section-label-alt">PLANES DE MEMBRESÍA</span>
+          <h2 class="plans-title">
+            Planes flexibles diseñados para tu progreso real
+          </h2>
+          <p class="plans-subtitle">
+            Elige el plan que se ajuste a tus objetivos. Sin contratos. Sin
+            cuotas ocultas. Solo resultados que sientes.
+          </p>
+        </div>
+
+        <div class="plans-grid">
+          <!-- Plan 1: Professional Basic -->
+          <div class="plan-card">
+            <div class="plan-header">
+              <h3 class="plan-name">Amateur</h3>
+              <div class="plan-price">
+                <span class="currency">$</span>
+                <span class="amount">28.000</span>
+                <span class="period">/mes</span>
+              </div>
+            </div>
+            <p class="plan-description">
+              Perfecto para principiantes que desean entrenamientos
+              estructurados y progreso.
+            </p>
+            <ul class="plan-features">
+              <li class="feature">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Acceso ilimitado al gimnasio</span>
+              </li>
+              <li class="feature">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Sesión de onboarding gratuita</span>
+              </li>
+              <li class="feature">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Orientación básica de ejercicios</span>
+              </li>
+              <li class="feature">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Acceso a clases grupales</span>
+              </li>
+              <li class="feature">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Acceso a casillero y duchas</span>
+              </li>
+            </ul>
+            <button class="plan-btn btn-secondary">Únete Ahora</button>
+          </div>
+
+          <!-- Plan 2: Professional Essential (Featured) -->
+          <div class="plan-card featured">
+            <div class="plan-badge">Popular</div>
+            <div class="plan-header">
+              <h3 class="plan-name">Profesional</h3>
+              <div class="plan-price">
+                <span class="currency">$</span>
+                <span class="amount">35.000</span>
+                <span class="period">/mes</span>
+              </div>
+            </div>
+            <p class="plan-description">
+              Ideal para personas serias en construir fuerza y mejorar su
+              condición física.
+            </p>
+            <ul class="plan-features">
+              <li class="feature">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Todo en Essential</span>
+              </li>
+              <li class="feature">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>1 plan de entrenamiento personalizado</span>
+              </li>
+              <li class="feature">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Análisis de composición corporal</span>
+              </li>
+              <li class="feature">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Reserva prioritaria de clases</span>
+              </li>
+              <li class="feature">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Guía de inicio nutricional</span>
+              </li>
+              <li class="feature">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Control mensual de progreso</span>
+              </li>
+            </ul>
+            <button class="plan-btn btn-primary">Únete Ahora</button>
+          </div>
+
+          <!-- Plan 3: Professional Premium -->
+          <div class="plan-card">
+            <div class="plan-header">
+              <h3 class="plan-name">experto</h3>
+              <div class="plan-price">
+                <span class="currency">$</span>
+                <span class="amount">50.000</span>
+                <span class="period">/mes</span>
+              </div>
+            </div>
+            <p class="plan-description">
+              Para quienes desean accountability completo, coaching
+              personalizado y resultados máximos.
+            </p>
+            <ul class="plan-features">
+              <li class="feature">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Todo en Performance</span>
+              </li>
+              <li class="feature">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Sesión de coaching semanal 1:1</span>
+              </li>
+              <li class="feature">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Plan de nutrición personalizado</span>
+              </li>
+              <li class="feature">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Dashboard de seguimiento del progreso</span>
+              </li>
+              <li class="feature">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Sesiones de movilidad y recuperación</span>
+              </li>
+              <li class="feature">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Mensajería ilimitada con el coach</span>
+              </li>
+            </ul>
+            <button class="plan-btn btn-secondary">Únete Ahora</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+      <div class="testimonials-container">
+        <div class="testimonials-header">
+          <span class="section-label-alt">HISTORIAS DE ÉXITO</span>
+          <h2 class="testimonials-title">
+            Miembros reales. Resultados reales.
+          </h2>
+          <p class="testimonials-subtitle">
+            Nuestros miembros provienen de todos los niveles de condición
+            física: principiantes, atletas y profesionales ocupados. Se
+            comprometen, los guiamos y los resultados llegan.
+          </p>
+        </div>
+
+        <div class="testimonials-grid">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <p class="testimonial-text">
+              Perdí 8 kg en 10 semanas pero lo más importante es que finalmente
+              me siento segura de mí misma. El coaching, la estructura, el
+              empuje... era exactamente lo que necesitaba para volver a la
+              pista.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                <i class="bi bi-person-fill"></i>
+              </div>
+              <div class="author-info">
+                <h4 class="author-name">Ana López</h4>
+                <p class="author-role">Asistente de enfermería</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <p class="testimonial-text">
+              Los entrenadores realmente se importan. Cada sesión es
+              estructurada, desafiante y divertida. Nunca fui consistente con un
+              gimnasio; genuinamente espero ir a entrenar.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                <i class="bi bi-person-fill"></i>
+              </div>
+              <div class="author-info">
+                <h4 class="author-name">María Rodríguez</h4>
+                <p class="author-role">Coordinadora de marketing</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <p class="testimonial-text">
+              Mi fuerza se duplicó en 4 meses. Me siento más fuerte, más
+              saludable y más disciplinado que nunca. Unirme fue sin dudas la
+              mejor inversión que he hecho en mí mismo.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                <i class="bi bi-person-fill"></i>
+              </div>
+              <div class="author-info">
+                <h4 class="author-name">Carlos Mendez</h4>
+                <p class="author-role">Presidente de ventas</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Banner with Parallax -->
+    <section class="cta-banner" id="cta">
+      <div class="cta-banner-content">
+        <span class="cta-label">COMIENZA HOY</span>
+        <h2 class="cta-title">Reserva ahora para transformar tu cuerpo.</h2>
+        <p class="cta-subtitle">
+          Da el primer paso hacia una versión más fuerte y saludable de ti
+          mismo. Reserva tu sesión de prueba gratuita: sin contratos ni
+          presiones, solo resultados.
+        </p>
+        <button class="btn btn-primary cta-btn">Empieza ahora</button>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+      <div class="faq-container">
+        <!-- Left Content -->
+        <div class="faq-left">
+          <span class="section-label-alt">— PREGUNTAS FRECUENTES</span>
+          <h2 class="faq-title">Preguntas Frecuentes</h2>
+          <p class="faq-description">
+            Respuestas claras a las preguntas más comunes para que puedas unirte
+            con confianza y entrenar sin incertidumbre.
+          </p>
+          <button class="btn btn-primary">Contacta con nuestro equipo</button>
+        </div>
+
+        <!-- Right Accordion -->
+        <div class="faq-right">
+          <!-- FAQ Item 1 -->
+          <div class="faq-item">
+            <button class="faq-question" data-toggle="faq-1">
+              <span>¿Qué incluye la membresía?</span>
+              <i class="bi bi-chevron-down"></i>
+            </button>
+            <div class="faq-answer" id="faq-1">
+              <p>
+                Obtienes acceso completo a todas las zonas de entrenamiento,
+                sesiones grupales dirigidas por entrenadores, horario de
+                gimnasio abierto y recursos exclusivos para miembros. Los planes
+                premium incluyen programación personalizada y apoyo nutricional.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 2 -->
+          <div class="faq-item">
+            <button class="faq-question" data-toggle="faq-2">
+              <span>¿Necesito experiencia previa para unirme?</span>
+              <i class="bi bi-chevron-down"></i>
+            </button>
+            <div class="faq-answer" id="faq-2">
+              <p>
+                ¡No es necesaria experiencia previa! Nuestros entrenadores
+                trabajan con principiantes, atletas y personas de todos los
+                niveles. Evaluaremos tu nivel de fitness y crearemos un programa
+                personalizado que se ajuste a tus necesidades.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 3 -->
+          <div class="faq-item">
+            <button class="faq-question" data-toggle="faq-3">
+              <span>¿Cómo funciona la sesión de prueba gratuita?</span>
+              <i class="bi bi-chevron-down"></i>
+            </button>
+            <div class="faq-answer" id="faq-3">
+              <p>
+                Reserva una sesión individual con uno de nuestros entrenadores.
+                Evaluaremos tu nivel de fitness, discutiremos tus objetivos y te
+                presentaremos nuestras instalaciones. ¡Sin compromiso requerido!
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 4 -->
+          <div class="faq-item">
+            <button class="faq-question" data-toggle="faq-4">
+              <span>¿Tus programas están personalizados?</span>
+              <i class="bi bi-chevron-down"></i>
+            </button>
+            <div class="faq-answer" id="faq-4">
+              <p>
+                ¡Por supuesto! Cada programa está adaptado a tus objetivos
+                específicos, nivel de fitness y estilo de vida. Nuestros
+                entrenadores ajustan continuamente tus entrenamientos según tu
+                progreso.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 5 -->
+          <div class="faq-item">
+            <button class="faq-question" data-toggle="faq-5">
+              <span>¿Qué pasa si tengo lesiones o problemas de movilidad?</span>
+              <i class="bi bi-chevron-down"></i>
+            </button>
+            <div class="faq-answer" id="faq-5">
+              <p>
+                Nuestros entrenadores están capacitados para trabajar con
+                diversos niveles de fitness y limitaciones físicas.
+                Modificaremos ejercicios y crearemos alternativas seguras para
+                ayudarte a alcanzar tus objetivos sin riesgo de lesión
+                adicional.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="contact-container">
+        <span class="section-label">— PONERSE EN CONTACTO</span>
+        <h2 class="contact-title">¿Listo para transformarte?</h2>
+        <p class="contact-description">
+          Contáctanos hoy y descubre cómo PowerLab Gym puede ayudarte a alcanzar
+          tus objetivos de fitness. Nuestro equipo está aquí para responder
+          todas tus preguntas.
+        </p>
+
+        <!-- Contact Content -->
+        <div class="contact-content">
+          <!-- Left: Map and Cards -->
+          <div class="contact-left">
+            <!-- Map -->
+            <div class="contact-map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509138!2d144.95565132346897!3d-37.816279010000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1ses!2spe!4v1735123456789"
+                width="100%"
+                height="300"
+                style="border: 0; border-radius: 8px"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+
+            <!-- Contact Info Cards -->
+            <div class="contact-info-cards">
+              <div class="contact-card">
+                <div class="contact-card-icon">
+                  <i class="bi bi-geo-alt-fill"></i>
+                </div>
+                <h3>Ubicación</h3>
+                <p>Calle Principal 123</p>
+                <p>Ciudad, Estado 12345</p>
+              </div>
+
+              <div class="contact-card">
+                <div class="contact-card-icon">
+                  <i class="bi bi-telephone-fill"></i>
+                </div>
+                <h3>Teléfono</h3>
+                <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                <p>Lun - Vie: 9am - 6pm</p>
+              </div>
+
+              <div class="contact-card">
+                <div class="contact-card-icon">
+                  <i class="bi bi-envelope-fill"></i>
+                </div>
+                <h3>Email</h3>
+                <p><a href="mailto:info@powerlab.com">info@powerlab.com</a></p>
+                <p>Respuesta en 24 horas</p>
+              </div>
+
+              <div class="contact-card">
+                <div class="contact-card-icon">
+                  <i class="bi bi-clock-fill"></i>
+                </div>
+                <h3>Horarios</h3>
+                <p>Lun - Vie: 6am - 10pm</p>
+                <p>Sab - Dom: 7am - 8pm</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Form -->
+          <div class="contact-right">
+            <form class="contact-form" id="contactForm">
+              <div class="form-group">
+                <label for="name">Nombre Completo</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Tu nombre"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="tu@email.com"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Teléfono</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="+1 (234) 567-890"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Asunto</label>
+                <select id="subject" name="subject" required>
+                  <option value="">Selecciona un asunto</option>
+                  <option value="membership">Información de membresía</option>
+                  <option value="training">Entrenamiento personalizado</option>
+                  <option value="classes">Clases grupales</option>
+                  <option value="other">Otro</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Mensaje</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Cuéntanos más sobre tu consulta..."
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary contact-btn">
+                Enviar Mensaje
+              </button>
+
+              <div class="form-message" id="formMessage"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Logo Section -->
+        <div class="footer-section footer-logo">
+          <div class="footer-brand">
+            <i class="bi bi-lightning-charge-fill footer-icon"></i>
+            <h3 class="footer-brand-name">PowerLab Gym</h3>
+          </div>
+          <p class="footer-tagline">
+            Transforma tu cuerpo. Eleva tu estilo de vida.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" title="Facebook">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="#" class="social-link" title="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="#" class="social-link" title="Twitter">
+              <i class="bi bi-twitter-x"></i>
+            </a>
+            <a href="#" class="social-link" title="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h4 class="footer-title">Navegación</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Inicio</a></li>
+            <li><a href="#services">Servicios</a></li>
+            <li><a href="#coaches">Entrenadores</a></li>
+            <li><a href="#pricing">Planes</a></li>
+            <li><a href="#testimonials">Testimonios</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contacto</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div class="footer-section">
+          <h4 class="footer-title">Servicios</h4>
+          <ul class="footer-links">
+            <li><a href="#">Evaluación Inicial</a></li>
+            <li><a href="#">Plan Personalizado</a></li>
+            <li><a href="#">Entrenamiento Guiado</a></li>
+            <li><a href="#">Seguimiento de Progreso</a></li>
+            <li><a href="#">Sesión de Prueba</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-section">
+          <h4 class="footer-title">Contacto</h4>
+          <ul class="footer-contact">
+            <li>
+              <i class="bi bi-geo-alt"></i>
+              <span>Calle Principal 123, Ciudad</span>
+            </li>
+            <li>
+              <i class="bi bi-telephone"></i>
+              <span><a href="tel:+1234567890">+1 (234) 567-890</a></span>
+            </li>
+            <li>
+              <i class="bi bi-envelope"></i>
+              <span
+                ><a href="mailto:info@powerlab.com">info@powerlab.com</a></span
+              >
+            </li>
+            <li>
+              <i class="bi bi-clock"></i>
+              <span>Lun - Vie: 6am - 10pm</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div class="footer-bottom-container">
+          <p class="footer-copyright">
+            &copy; 2024 PowerLab Gym. Todos los derechos reservados.
+          </p>
+          <div class="footer-bottom-links">
+            <a href="#">Política de Privacidad</a>
+            <span class="divider">|</span>
+            <a href="#">Términos de Servicio</a>
+            <span class="divider">|</span>
+            <a href="#">Política de Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" title="Arriba">
+      <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <script src="Main.js"></script>
+  </body>
+</html>
