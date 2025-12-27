@@ -15,6 +15,13 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="Style.css" />
+    <!-- Favicon -->
+    <link
+      style="color: blue"
+      rel="icon"
+      type="image/svg+xml"
+      href="Assets/Favicon.svg"
+    />
   </head>
   <body>
     <!-- Navbar -->
@@ -60,6 +67,10 @@
 
         <!-- Desktop Buttons -->
         <div class="navbar-buttons">
+          <a href="#contact" class="btn-navbar btn-navbar-secondary"
+            >Contacto</a
+          >
+          <button class="register-btn">Registrarse</button>
           <button
             class="theme-toggle-btn"
             id="themeToggleBtn"
@@ -67,10 +78,6 @@
           >
             <i class="bi bi-moon-fill"></i>
           </button>
-          <a href="#contact" class="btn-navbar btn-navbar-secondary"
-            >Contacto</a
-          >
-          <button class="register-btn">Registrarse</button>
         </div>
 
         <!-- Mobile Hamburger Menu Button -->
@@ -113,6 +120,15 @@
         <li class="mobile-nav-item">
           <button class="mobile-register-btn">Registrarse</button>
         </li>
+        <li class="mobile-nav-item theme-toggle-mobile">
+          <button
+            class="theme-toggle-btn mobile"
+            id="themeToggleBtnMobile"
+            title="Cambiar tema"
+          >
+            <i class="bi bi-moon-fill"></i>
+          </button>
+        </li>
       </ul>
     </div>
 
@@ -150,7 +166,9 @@
         <!-- Botones de acción -->
         <div class="hero-buttons">
           <button class="btn btn-primary">Únete Ahora</button>
-          <button class="btn btn-secondary">Ver Programas</button>
+          <a href="#routine-generator" class="btn btn-primary"
+            >Crea tu Rutina</a
+          >
         </div>
       </div>
     </section>
@@ -421,6 +439,246 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Routine Generator Section -->
+    <section class="routine-generator" id="routine-generator">
+      <div class="routine-generator-container">
+        <div class="generator-header">
+          <span class="section-label-alt">HERRAMIENTA PERSONALIZADA</span>
+          <h2 class="generator-title">Generador de Rutinas Inteligente</h2>
+          <p class="generator-subtitle">
+            Responde algunas preguntas sobre tus objetivos y experiencia, y
+            recibirás una rutina personalizada diseñada especialmente para ti.
+          </p>
+        </div>
+
+        <div class="quiz-container">
+          <!-- Quiz Form -->
+          <form class="quiz-form" id="quizForm">
+            <!-- Question Counter -->
+            <div class="quiz-question-counter">
+              <span id="questionCounter">Pregunta 1 de 4</span>
+            </div>
+
+            <!-- Question 1 -->
+            <div class="quiz-question" data-question="1">
+              <h3 class="question-title">¿Cuál es tu objetivo principal?</h3>
+              <div class="question-options">
+                <label class="option">
+                  <input type="radio" name="objetivo" value="masa" required />
+                  <span class="option-content">
+                    <i class="bi bi-lightning-fill"></i>
+                    <span class="option-text">
+                      <strong>Ganancia de Masa</strong>
+                      <small>Aumentar músculo y volumen</small>
+                    </span>
+                  </span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="objetivo" value="definicion" />
+                  <span class="option-content">
+                    <i class="bi bi-fire"></i>
+                    <span class="option-text">
+                      <strong>Definición</strong>
+                      <small>Quemar grasa y tonificar</small>
+                    </span>
+                  </span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="objetivo" value="resistencia" />
+                  <span class="option-content">
+                    <i class="bi bi-heart-fill"></i>
+                    <span class="option-text">
+                      <strong>Resistencia</strong>
+                      <small>Mejorar cardio y stamina</small>
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="quiz-question" data-question="2" style="display: none">
+              <h3 class="question-title">¿Cuál es tu nivel de experiencia?</h3>
+              <div class="question-options">
+                <label class="option">
+                  <input
+                    type="radio"
+                    name="nivel"
+                    value="principiante"
+                    required
+                  />
+                  <span class="option-content">
+                    <i class="bi bi-star-fill"></i>
+                    <span class="option-text">
+                      <strong>Principiante</strong>
+                      <small>Menos de 6 meses entrenando</small>
+                    </span>
+                  </span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="nivel" value="intermedio" />
+                  <span class="option-content">
+                    <i class="bi bi-star-fill"></i>
+                    <span class="option-text">
+                      <strong>Intermedio</strong>
+                      <small>6 meses a 2 años</small>
+                    </span>
+                  </span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="nivel" value="avanzado" />
+                  <span class="option-content">
+                    <i class="bi bi-star-fill"></i>
+                    <span class="option-text">
+                      <strong>Avanzado</strong>
+                      <small>Más de 2 años</small>
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="quiz-question" data-question="3" style="display: none">
+              <h3 class="question-title">
+                ¿Cuántos días por semana puedes entrenar?
+              </h3>
+              <div class="question-options">
+                <label class="option">
+                  <input type="radio" name="dias" value="3" required />
+                  <span class="option-content">
+                    <i class="bi bi-calendar-week"></i>
+                    <span class="option-text">
+                      <strong>3 días</strong>
+                      <small>Rutina compacta y eficiente</small>
+                    </span>
+                  </span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="dias" value="4" />
+                  <span class="option-content">
+                    <i class="bi bi-calendar-week"></i>
+                    <span class="option-text">
+                      <strong>4 días</strong>
+                      <small>Balance perfecto</small>
+                    </span>
+                  </span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="dias" value="5" />
+                  <span class="option-content">
+                    <i class="bi bi-calendar-week"></i>
+                    <span class="option-text">
+                      <strong>5 días</strong>
+                      <small>Mayor volumen de entrenamiento</small>
+                    </span>
+                  </span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="dias" value="6" />
+                  <span class="option-content">
+                    <i class="bi bi-calendar-week"></i>
+                    <span class="option-text">
+                      <strong>6 días</strong>
+                      <small>Entrenamiento intensivo</small>
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="quiz-question" data-question="4" style="display: none">
+              <h3 class="question-title">¿Cuánto tiempo tienes por sesión?</h3>
+              <div class="question-options">
+                <label class="option">
+                  <input type="radio" name="duracion" value="45" required />
+                  <span class="option-content">
+                    <i class="bi bi-clock-fill"></i>
+                    <span class="option-text">
+                      <strong>45 minutos</strong>
+                      <small>Sesión rápida y enfocada</small>
+                    </span>
+                  </span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="duracion" value="60" />
+                  <span class="option-content">
+                    <i class="bi bi-clock-fill"></i>
+                    <span class="option-text">
+                      <strong>60 minutos</strong>
+                      <small>Tiempo estándar</small>
+                    </span>
+                  </span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="duracion" value="90" />
+                  <span class="option-content">
+                    <i class="bi bi-clock-fill"></i>
+                    <span class="option-text">
+                      <strong>90 minutos</strong>
+                      <small>Sesión completa y detallada</small>
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="quiz-results" style="display: none" id="quizResults">
+              <div class="results-content">
+                <div class="results-header">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <h3>¡Tu Rutina Personalizada está lista!</h3>
+                </div>
+                <!-- Results Action Buttons -->
+                <div class="results-buttons">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="downloadBtn"
+                    title="Descargar rutina en PDF"
+                  >
+                    <i class="bi bi-download"></i> Descargar Rutina
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="restartQuizBtn"
+                    title="Reiniciar el cuestionario"
+                  >
+                    <i class="bi bi-arrow-clockwise"></i> Reiniciar Quiz
+                  </button>
+                </div>
+                <div
+                  class="routine-recommendation"
+                  id="routineRecommendation"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="quiz-navigation">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                id="prevBtn"
+                style="display: none"
+              >
+                <i class="bi bi-chevron-left"></i> Anterior
+              </button>
+              <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+              </div>
+              <button type="button" class="btn btn-primary" id="nextBtn">
+                Siguiente <i class="bi bi-chevron-right"></i>
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </section>
