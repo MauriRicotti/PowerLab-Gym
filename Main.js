@@ -67,11 +67,49 @@ const updateThemeIcon = (nextTheme) => {
     }
 };
 
-// Toggle tema al hacer click
+// Crear overlay de transición con animación
+const createThemeTransitionOverlay = () => {
+    const overlay = document.createElement('div');
+    overlay.className = 'theme-transition-overlay';
+    
+    const powerlabText = document.createElement('div');
+    powerlabText.className = 'powerlab-text';
+    powerlabText.textContent = 'PowerLab';
+    
+    overlay.appendChild(powerlabText);
+    document.body.appendChild(overlay);
+    
+    return overlay;
+};
+
+// Toggle tema con animación
 const toggleTheme = () => {
     const currentTheme = htmlElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
+    
+    // Agregar clase para ocultar scroll
+    document.body.classList.add('theme-transition-active');
+    
+    // Crear overlay
+    const overlay = createThemeTransitionOverlay();
+    
+    // Esperar a que termine la animación de fade-in (0.6s) + el texto de PowerLab (1.2s)
+    setTimeout(() => {
+        // Cambiar el tema
+        setTheme(newTheme);
+        
+        // Iniciar animación de fade-out después de 0.6s (cuando termina el fade-in)
+        setTimeout(() => {
+            overlay.classList.add('fade-out');
+            
+            // Remover el overlay después de la animación de fade-out (0.6s)
+            setTimeout(() => {
+                overlay.remove();
+                // Remover clase para mostrar scroll nuevamente
+                document.body.classList.remove('theme-transition-active');
+            }, 600);
+        }, 600);
+    }, 1200);
 };
 
 if (themeToggleBtn) {
@@ -959,3 +997,26 @@ function downloadRoutineAsPDF(recommendation, objectiveText, levelText) {
   link.click();
   document.body.removeChild(link);
 }
+
+// ==================== 360 VIDEO SECTION ====================
+class Video360Player {
+  constructor() {
+    this.video = document.getElementById('video360');
+    
+    if (!this.video) return;
+    
+    this.init();
+  }
+  
+  init() {
+    // YouTube maneja automáticamente los videos 360
+    // Solo necesitamos asegurarnos que el iframe esté bien configurado
+    console.log('Video 360 de YouTube cargado correctamente');
+  }
+}
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+  new Video360Player();
+});
+

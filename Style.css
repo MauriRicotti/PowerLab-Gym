@@ -26,6 +26,98 @@
   --border-color: #2a2a2a;
 }
 
+/* ==================== ANIMACIÓN DE CAMBIO DE TEMA ==================== */
+@keyframes fadeToBlack {
+  0% {
+    opacity: 0;
+    background-color: transparent;
+  }
+  100% {
+    opacity: 1;
+    background-color: rgb(0, 0, 0);
+  }
+}
+
+@keyframes fadeFromBlack {
+  0% {
+    opacity: 1;
+    background-color: rgb(0, 0, 0);
+  }
+  100% {
+    opacity: 0;
+    background-color: transparent;
+  }
+}
+
+@keyframes appearPowerLab {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.theme-transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeToBlack 0.6s ease-in forwards;
+  pointer-events: none;
+}
+
+/* Ocultar scroll durante la transición de tema */
+body.theme-transition-active {
+  overflow: hidden;
+}
+
+.theme-transition-overlay.fade-out {
+  animation: fadeFromBlack 0.6s ease-out forwards;
+}
+
+.powerlab-text {
+  font-size: 8rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  font-family: "Russo One", sans-serif;
+  letter-spacing: 2px;
+  animation: appearPowerLab 2s ease-in-out forwards;
+}
+
+/* Responsive para tablets */
+@media (max-width: 768px) {
+  .powerlab-text {
+    font-size: 5rem;
+  }
+}
+
+/* Responsive para celulares */
+@media (max-width: 480px) {
+  .powerlab-text {
+    font-size: 3rem;
+  }
+}
+
+/* Responsive para celulares pequeños */
+@media (max-width: 360px) {
+  .powerlab-text {
+    font-size: 2.2rem;
+  }
+}
+
 /* Reset y estilos generales */
 * {
   margin: 0;
@@ -1153,6 +1245,16 @@ a.btn:hover {
       rgba(0, 0, 0, 0.2) 100%
     ),
     url("Assets/img\ hero\ gym.webp");
+}
+
+/* Escala de grises en tema oscuro */
+:root[data-theme="dark"] .extra-hero-card {
+  filter: grayscale(100%);
+}
+
+/* Quitar escala de grises al hover en tema oscuro */
+:root[data-theme="dark"] .extra-hero-card:hover {
+  filter: grayscale(0%);
 }
 
 .card-overlay {
@@ -3434,6 +3536,7 @@ a.btn:hover {
 .routine-generator {
   padding: 6rem 2rem;
   background: var(--bg-light);
+  position: relative;
 }
 
 .routine-generator-container {
@@ -3466,9 +3569,10 @@ a.btn:hover {
 /* Quiz Container */
 .quiz-container {
   background: var(--bg-white);
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 3rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(46, 170, 110, 0.1);
 }
 
 .quiz-form {
@@ -3492,18 +3596,34 @@ a.btn:hover {
 }
 
 .question-title {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.8rem;
+  font-weight: 700;
   color: var(--text-dark);
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   text-align: center;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--primary-light) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .question-options {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: 2rem;
   margin-bottom: 2rem;
+}
+
+/* Para preguntas con 4 opciones (adapta a 2x2) */
+.quiz-question:has(.option:nth-child(4)) .question-options {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .option {
@@ -3515,25 +3635,25 @@ a.btn:hover {
 
 .option input[type="radio"] {
   appearance: none;
-  width: 20px;
-  height: 20px;
-  border: 2px solid var(--primary-color);
-  border-radius: 50%;
+  width: 0;
+  height: 0;
+  border: none;
   cursor: pointer;
-  margin-right: 1rem;
+  margin: 0;
   transition: all 0.3s ease;
   flex-shrink: 0;
+  display: none;
 }
 
-.option input[type="radio"]:hover {
+.option:hover .option-content {
   border-color: var(--primary-light);
-  background-color: rgba(46, 170, 110, 0.1);
+  background-color: rgba(46, 170, 110, 0.08);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(46, 170, 110, 0.15);
 }
 
 .option input[type="radio"]:checked {
-  border-color: var(--accent-color);
-  background-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(46, 170, 110, 0.2);
+  display: none;
 }
 
 .option-content {
@@ -3543,28 +3663,60 @@ a.btn:hover {
   flex: 1;
   padding: 1.5rem;
   background: var(--bg-white);
-  border-radius: 8px;
+  border-radius: 12px;
   border: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 100%;
+  position: relative;
+}
+
+.option-content::after {
+  content: "✓";
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 24px;
+  height: 24px;
+  background: var(--primary-light);
+  color: var(--text-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: bold;
+  opacity: 0;
+  transform: scale(0);
   transition: all 0.3s ease;
 }
 
 .option input[type="radio"]:checked + .option-content {
   background: linear-gradient(
     135deg,
-    rgba(27, 110, 79, 0.08) 0%,
-    rgba(46, 170, 110, 0.08) 100%
+    rgba(27, 110, 79, 0.12) 0%,
+    rgba(46, 170, 110, 0.12) 100%
   );
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 1px var(--primary-color);
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 2px var(--primary-light),
+    0 8px 24px rgba(46, 170, 110, 0.25);
+  transform: translateY(-3px);
+}
+
+.option input[type="radio"]:checked + .option-content::after {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .option-content i {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   color: var(--primary-color);
+  transition: all 0.3s ease;
 }
 
 .option input[type="radio"]:checked + .option-content i {
   color: var(--primary-light);
+  transform: scale(1.1) rotate(5deg);
 }
 
 .option-text {
@@ -3602,14 +3754,15 @@ a.btn:hover {
 .results-content {
   background: linear-gradient(
     135deg,
-    rgba(27, 110, 79, 0.06) 0%,
-    rgba(46, 170, 110, 0.06) 100%
+    rgba(27, 110, 79, 0.1) 0%,
+    rgba(46, 170, 110, 0.1) 100%
   );
-  border: 2px solid var(--primary-color);
-  border-radius: 12px;
-  padding: 2.5rem;
+  border: 2px solid var(--primary-light);
+  border-radius: 16px;
+  padding: 3rem;
   text-align: center;
   margin-bottom: 2rem;
+  box-shadow: 0 8px 32px rgba(46, 170, 110, 0.1);
 }
 
 .results-header {
@@ -3621,13 +3774,32 @@ a.btn:hover {
 }
 
 .results-header i {
-  font-size: 3rem;
+  font-size: 3.5rem;
   color: var(--primary-light);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 .results-header h3 {
-  font-size: 1.8rem;
-  color: var(--text-dark);
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--primary-light) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin: 0;
 }
 
@@ -3706,10 +3878,11 @@ a.btn:hover {
 
 .progress-bar {
   flex: 1;
-  height: 6px;
+  height: 8px;
   background: var(--border-color);
-  border-radius: 3px;
+  border-radius: 4px;
   overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .progress-fill {
@@ -3720,7 +3893,8 @@ a.btn:hover {
     var(--primary-light) 100%
   );
   width: 25%;
-  transition: width 0.3s ease;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 10px rgba(46, 170, 110, 0.4);
 }
 
 .quiz-navigation .btn {
@@ -3746,15 +3920,22 @@ a.btn:hover {
 /* Question Counter */
 .quiz-question-counter {
   text-align: center;
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
   border-bottom: 2px solid var(--border-color);
 }
 
 #questionCounter {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--primary-color);
+  font-size: 1.1rem;
+  font-weight: 700;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--primary-light) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   letter-spacing: 0.5px;
 }
 
@@ -3781,6 +3962,223 @@ a.btn:hover {
 
 .results-buttons .btn i {
   font-size: 1.1rem;
+}
+
+/* ==================== 360 VIDEO SECTION ==================== */
+.video-360 {
+  padding: 6rem 2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(27, 110, 79, 0.05) 0%,
+    rgba(46, 170, 110, 0.05) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.video-360::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 229, 184, 0.1) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.video-360-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.video-360-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.video-360-description {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 360 Video Player */
+.video-360-player {
+  background: var(--bg-white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+  border: 2px solid var(--border-color);
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.video-360-element {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: grab;
+}
+
+.video-360-element:active {
+  cursor: grabbing;
+}
+
+/* Video Controls */
+.video-360-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  background: var(--bg-light);
+  flex-wrap: wrap;
+}
+
+.vr-button,
+.reset-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--primary-light) 100%
+  );
+  color: var(--text-white);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.vr-button:hover,
+.reset-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(27, 110, 79, 0.3);
+}
+
+.vr-button:active,
+.reset-button:active {
+  transform: translateY(0);
+}
+
+.control-hint {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+/* Features Grid */
+.video-360-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background: var(--bg-white);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  border: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.feature-card:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0, 229, 184, 0.15);
+}
+
+.feature-card i {
+  font-size: 2.5rem;
+  color: var(--primary-light);
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  font-size: 1.3rem;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.feature-card p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .video-360 {
+    padding: 4rem 1.5rem;
+  }
+
+  .video-360-title {
+    font-size: 2rem;
+  }
+
+  .video-360-description {
+    font-size: 1rem;
+  }
+
+  .video-360-player {
+    margin-bottom: 2rem;
+  }
+
+  .video-360-controls {
+    padding: 1.5rem;
+    gap: 0.75rem;
+  }
+
+  .vr-button,
+  .reset-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .control-hint {
+    font-size: 0.85rem;
+    width: 100%;
+  }
+
+  .video-360-features {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
 /* Mobile Responsive - Routine Generator */
@@ -4057,5 +4455,30 @@ a.btn:hover {
 
   .results-buttons .btn i {
     font-size: 1rem;
+  }
+
+  /* 360 Video Section - Mobile */
+  .video-360-player {
+    max-width: 100%;
+  }
+
+  .video-360-controls {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .vr-button,
+  .reset-button {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .control-hint {
+    font-size: 0.8rem;
+  }
+
+  .video-360-features {
+    grid-template-columns: 1fr;
   }
 }
